@@ -271,7 +271,7 @@ export default function TradingDashboard() {
             <span style={{ fontFamily: font, fontSize: 11, color: theme.accent }}>LIVE</span>
           </div>
           <div style={{ fontFamily: font, fontSize: 13, color: theme.textDim }}>
-            {clock.toLocaleTimeString("en-US", { hour12: false })} EST
+            {clock.toLocaleTimeString("en-US", { hour12: false, timeZoneName: "short" })}
           </div>
         </div>
       </header>
