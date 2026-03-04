@@ -261,7 +261,7 @@ export default function TradingDashboard() {
             fontFamily: font, fontWeight: 700, fontSize: 14, color: theme.bg,
           }}>α</div>
           <div>
-            <div style={{ fontFamily: fontSans, fontWeight: 700, fontSize: 16, color: theme.text, letterSpacing: -0.3 }}>ALPHA ENGINE</div>
+            <div style={{ fontFamily: fontSans, fontWeight: 700, fontSize: 16, color: theme.text, letterSpacing: -0.3 }}>SOMBR ENGINE</div>
             <div style={{ fontFamily: font, fontSize: 10, color: theme.textMuted, letterSpacing: 0.5 }}>QUANTITATIVE TRADING SYSTEM</div>
           </div>
         </div>
