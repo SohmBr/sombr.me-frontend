@@ -552,7 +552,6 @@ export default function TradingDashboard() {
             </div>
           </div>
         )}
-
         {portfolio && activeTab === "algorithm" && (
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
             {/* Strategy Overview */}
@@ -575,6 +574,10 @@ export default function TradingDashboard() {
                 <p>
                   Current portfolio: {portfolio.symbols?.join(", ")} optimized over {startDate} to {endDate},
                   achieving a Sharpe ratio of {stats.sharpe_ratio} with {stats.cumulative_return}% cumulative return.
+                </p>
+                <p>
+                  - Create dedicated "todo" section. 
+                  - Implement DTLearner from assess_learners project
                 </p>
               </div>
             </div>
