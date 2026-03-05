@@ -304,7 +304,7 @@ export default function TradingDashboard() {
             </div>
           )}
           <div style={{ fontFamily: font, fontSize: 13, color: theme.textDim }}>
-            {clock.toLocaleTimeString("en-US", { hour12: false })} EST
+            {clock.toLocaleTimeString("en-US", { hour12: false })} Local Time
           </div>
         </div>
       </header>
