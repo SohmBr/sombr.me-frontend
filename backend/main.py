@@ -43,9 +43,14 @@ def get_portfolio(
     end: str = Query(default="2024-01-01", description="End date (YYYY-MM-DD)"),
 ):
     """Full portfolio optimization result: allocations, stats, equity curve, holdings."""
-    syms = [s.strip().upper() for s in symbols.split(",") if s.strip()]
-    data = _get_portfolio(syms, start, end)
-    return data
+    try:
+        syms = [s.strip().upper() for s in symbols.split(",") if s.strip()]
+        data = _get_portfolio(syms, start, end)
+        return data
+    except Exception as e:
+        import traceback
+        traceback.print_exc()
+        return {"error": str(e)}
 
 
 @app.get("/api/equity-curve")
@@ -83,11 +88,16 @@ def get_trades(
     count: int = Query(default=20, ge=1, le=100),
 ):
     """Simulated trade feed based on optimized holdings."""
-    syms = [s.strip().upper() for s in symbols.split(",") if s.strip()]
-    data = _get_portfolio(syms, start, end)
-    trades = generate_trades(data["holdings"], num_trades=count)
-    stats = compute_trade_stats(trades)
-    return {"trades": trades, "session_stats": stats}
+    try:
+        syms = [s.strip().upper() for s in symbols.split(",") if s.strip()]
+        data = _get_portfolio(syms, start, end)
+        trades = generate_trades(data["holdings"], num_trades=count)
+        stats = compute_trade_stats(trades)
+        return {"trades": trades, "session_stats": stats}
+    except Exception as e:
+        import traceback
+        traceback.print_exc()
+        return {"trades": [], "session_stats": {}, "error": str(e)}
 
 
 @app.get("/api/health")
