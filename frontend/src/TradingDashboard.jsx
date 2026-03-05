@@ -6,7 +6,9 @@ import {
 
 // ─── API ──────────────────────────────────────────────────────────────────────
 
-const API_BASE = "/api";
+// In production, VITE_API_URL points to the Render backend.
+// In local dev, it falls back to "/api" which Vite proxies to localhost:8000.
+const API_BASE = import.meta.env.VITE_API_URL || "/api";
 
 async function fetchPortfolio(symbols, start, end) {
   const params = new URLSearchParams({ symbols: symbols.join(","), start, end });

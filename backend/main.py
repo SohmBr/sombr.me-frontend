@@ -15,7 +15,14 @@ app = FastAPI(title="Alpha Engine API", version="1.0.0")
 # Allow the React dev server to connect
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173", "http://localhost:3000", "*"],
+    allow_origins=[
+        "http://localhost:5173",
+        "http://localhost:3000",
+        "https://sombr.me",
+        "https://www.sombr.me",
+        "https://*.vercel.app",
+    ],
+    allow_origin_regex=r"https://.*\.vercel\.app",
     allow_methods=["*"],
     allow_headers=["*"],
 )
