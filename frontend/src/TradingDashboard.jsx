@@ -578,6 +578,7 @@ export default function TradingDashboard() {
                 <p>
                   - Create dedicated "todo" section. 
                   - Implement DTLearner from assess_learners project
+                  - Implement mobile view
                 </p>
               </div>
             </div>
